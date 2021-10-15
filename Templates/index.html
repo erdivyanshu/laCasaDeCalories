@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+
+
+{% block body %}
+<!--    alert message start-->
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Hey Heist!:</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum minus error dolores tenetur quas accusantium earum. Reiciendis impedit, quidem quo dolore hic perspiciatis nam rerum earum explicabo voluptatum dicta aspernatur iste aut? Placeat cumque molestias exercitationem deleniti sapiente officia accusamus!
+
+
+<script src="/static/js/welcome.js"></script>
+{% endblock body %}

@@ -1,0 +1,34 @@
+
+nav div img{
+    
+    border-radius:50px;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+nav div a{
+    font-size: 25px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.navbar-custom {
+    background-color: rgb(96, 21, 119);
+    
+}
+/* Modify  text color */
+.nav-link{
+    color: rgb(22, 230, 202);
+    font-weight: 600;
+}
+
+.navbar-nav a:hover {
+    color: yellow;
+}
+.navbar-nav .nav-item a:active {
+    color: rgb(214, 167, 13);
+}

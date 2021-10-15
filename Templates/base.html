@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>{% block title %} {% endblock title %} </title>
+
+  <link href="/static/css/base.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <!--Navbaar start from here-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-custom">
+        <!-- <a class="navbar-brand" href="#">Sticky top</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item {{ home }}">
+              <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item  {{ home }}">
+             <a class="nav-link" href="/home">Catalog</a>
+            </li>
+            <li class="nav-item {{ contact }}">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+    
+          </ul>
+          <ul class="navbar-nav mr-auto">
+          <a class="navbar-brand" href="/home"> <img src="/static/images/logo.jpg" alt=""width="35"height="32"></a>
+        </ul>
+ {% if user.is_authenticated %}
+            <ul class="navbar-nav mx-2">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown1" role="button" data-toggle="dropdown" style="color: gold;font-family: 'Montserrat', sans-serif; font-weight: bold"> Welcome! {{request.user}}</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/home">Profile</a><hr>
+                <a class="dropdown-item" href="/logout">Logout</a>
+
+        </div>
+      </li>
+      </ul>
+      </div>
+          {% else %}
+          <div class="mx-2">
+          <a href="/login"><button type=" button" class="btn btn btn-warning" data-toggle="modal" data-target="#loginModal">Login</button></a>
+          <a href="/signup"><button type=" button" class="btn btn-light" data-toggle="modal" data-target="#signupModal">SignUp</button></a>
+        </div>
+            {% endif %}
+        </div>
+      </nav>
+
+    <!--Navbaar end here-->
+
+    {% block body %} {% endblock body %}
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
