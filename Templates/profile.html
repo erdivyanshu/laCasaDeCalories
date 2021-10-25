@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Profile|{{user}}{% endblock title %}
+
+<link href="/static/css/profileb .css" rel="stylesheet">
+{% block body %}
+<!--    alert message start-->
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Hey Heist!:</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+ 
+<!--    data updation option enable for authentic user-->
+   {% if user.is_authenticated %}
+<div class=" mx-2 text-right">
+         <button type=" button" class="btn btn btn-warning" data-toggle="modal" data-target="#update">Edit</button>
+</div>
+    {% endif %}
+</div>
+   <!--    data updation option enable for authentic user end-->
+
+   {{user.profile.bio}}
+{{user.profile.firstname}}
+{{user.profile.lastname}}
+{{user.profile.email}}
+
+  <img src="{{user.profile.url}}" width="200px" height="100px">
+
+
+
+
+
+
+
+<script src="/static/js/profile.js"></script>
+{% endblock body %}

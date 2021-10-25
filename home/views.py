@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
-from home.models import Contact
+from home.models import Contact, Profile
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
@@ -92,3 +92,9 @@ def logoutUser(request):
     logout(request)
     messages.success(request, "You are Successfully Logged-Out!")
     return redirect('home')
+
+def profile(request):
+    context = {"profile": "active"}
+    if request.user.is_anonymous:
+        return redirect("/login") 
+    return render(request,'profile.html', context)
